@@ -549,7 +549,7 @@ else:
         st.session_state.logged_in = False
         st.session_state.role = ''
         st.info("👋 Logged out successfully.")
-        st.experimental_rerun()
+        st.rerun()
 
     if page=="🏠 Dashboard":
         st.title("📊 Security Scan Dashboard")
