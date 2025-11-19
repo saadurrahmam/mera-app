@@ -19,7 +19,7 @@ from bs4 import BeautifulSoup
 # ==================================
 # DEBUG MODE FOR CHARTS (SET TO TRUE FOR DEMO WITH ALL SEVERITIES)
 # ==================================
-DEBUG_MODE_CHARTS = False 
+DEBUG_MODE_CHARTS = True
 
 # ==================================
 # CUSTOM CSS FOR DARK MODE PROFESSIONAL LOOK & RESPONSIVENESS
@@ -29,16 +29,16 @@ st.markdown("""
 /* --- UNIFIED DARK MODE COLOR PALETTE --- */
 :root {
     --primary-color: #00796b; /* Deep Teal (for general accents) */
-    --accent-color: #d32f2f; /* Darker Red (for progress bar/critical action) */
-    --background-dark: #1e1e1e; /* Dark background */
+    --accent-color: #ffffff; /* Darker Red (for progress bar/critical action) */
+    --background-dark: #ffffff; /* Dark background */
     --background-card: #2d2d2d; /* Card background (slightly lighter than app background) */
-    --text-white: #f5f5f5; /* Light text */
-    --text-light-gray: #b0b0b0; /* Subtext */
+    --text-white: #000000; /* Light text */
+    --text-light-gray: #000000; /* Subtext */
     --critical-red: #f44336; /* Bright Red for Critical findings */
     --high-orange: #ff9800; /* Orange for High findings */
     --medium-teal: #00bcd4; /* Brighter Teal for Medium findings */
     --low-blue: #2196f3; /* Blue for Low findings */
-    --soft-gray-blue: #3a3a3a; /* Darker background for guidance box */
+    --soft-gray-blue: #DEDCDC; /* Darker background for guidance box */
 }
 
 /* --- BASE & UTILITIES (Applying Dark Mode Background) --- */
@@ -74,7 +74,7 @@ h3 {
 
 /* --- 2. CARD/BOX STYLING (Dashboard/History Background Refinement) --- */
 .st-emotion-cache-1r6r000, .st-emotion-cache-1n103ah, .st-emotion-cache-1gsv2z1, .st-emotion-cache-1kywczu, .st-emotion-cache-1vb648g { 
-    background-color: rgba(45, 45, 45, 0.85);
+    background-color: #ffffff;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
     border-radius: 12px; 
     padding: 30px; 
@@ -90,7 +90,7 @@ h3 {
 
 /* --- 3. METRIC BOXES (KPIs) --- */
 .metric-box {
-    background: linear-gradient(135deg, #004d40 0%, #00796b 100%); 
+    background: linear-gradient(135deg, ##C9D6FF 20%, #E2E2E2 50%); 
     padding: 20px 25px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
@@ -115,6 +115,8 @@ div[data-testid="stStatusWidget"] {
     color: var(--text-white) !important;
     border: none !important;
     padding: 10px 15px !important;
+    border-radius:12px;
+    
 }
 .stSuccess {
     background-color: var(--accent-color) !important;
@@ -128,7 +130,7 @@ div[data-testid="stStatusWidget"] {
     margin-bottom: 20px;
 }
 .stProgress > div > div {
-    background-color: #3a3a3a;
+    background-color: #DEDCDC;
     border-radius: 10px;
 }
 .stProgress > div > div > div {
@@ -139,7 +141,7 @@ div[data-testid="stStatusWidget"] {
 
 /* --- 6. TERMINAL LOG SPACING --- */
 .log-entry-container {
-    background-color: #1c2833;
+    background-color: #ffffff;
     border-radius: 10px;
     padding: 10px 15px;
     margin-bottom: 8px;
@@ -182,7 +184,13 @@ div[data-testid="stStatusWidget"] {
 div[data-testid="stDataFrame"] {
     overflow-x: auto;
 }
+
+
+
 </style>
+
+
+
 """, unsafe_allow_html=True)
 # ==================================
 # DATABASE SETUP 
@@ -755,7 +763,7 @@ else:
             
             # Use darker colors for area chart in dark mode
             line_chart = alt.Chart(df_trend).mark_area(
-                line={'color':'#00a18c'}, 
+                line={'color':"#595959"}, 
                 color=alt.Gradient(
                     gradient='linear',
                     stops=[alt.GradientStop(color='#2d2d2d', offset=0), alt.GradientStop(color='rgba(0, 121, 107, 0.4)', offset=1)], 
